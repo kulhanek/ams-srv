@@ -16,6 +16,7 @@ SET(PROG_SRC
         _SearchSite.cpp
         _SearchSites.cpp
         _Error.cpp
+        prefix.c
         )
 
 # final build ------------------------------------------------------------------

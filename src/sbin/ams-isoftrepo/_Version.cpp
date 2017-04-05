@@ -24,13 +24,13 @@
 #include <TemplateParams.hpp>
 #include <ErrorSystem.hpp>
 #include <DirectoryEnum.hpp>
-#include <prefix.h>
+#include "prefix.h"
 #include <AmsUUID.hpp>
 #include <Site.hpp>
 #include <Cache.hpp>
 #include <PrintEngine.hpp>
 #include <Utils.hpp>
-#include <GlobalConfig.hpp>
+#include <AMSGlobalConfig.hpp>
 #include <XMLIterator.hpp>
 
 using namespace std;
@@ -91,7 +91,7 @@ bool CISoftRepoServer::_Version(CFCGIRequest& request)
         return(false);
     }
 
-    GlobalConfig.SetActiveSiteID(site_sid);
+    AMSGlobalConfig.SetActiveSiteID(site_sid);
 
     // initialze AMS cache
     if( Cache.LoadCache(true) == false) {

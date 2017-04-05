@@ -25,3 +25,7 @@ var/html/isoftrepo/CMakeLists.txt
 var/html/CMakeLists.txt
 var/CMakeLists.txt
 CMakeLists.txt
+src/sbin/ams-isoftrepo/prefix.c
+src/sbin/ams-isoftrepo/prefix.h
+src/sbin/ams-isoftstat/prefix.c
+src/sbin/ams-isoftstat/prefix.h

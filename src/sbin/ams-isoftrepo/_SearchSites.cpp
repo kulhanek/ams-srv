@@ -24,12 +24,12 @@
 #include <TemplateParams.hpp>
 #include <ErrorSystem.hpp>
 #include <DirectoryEnum.hpp>
-#include <prefix.h>
+#include "prefix.h"
 #include <AmsUUID.hpp>
 #include <Site.hpp>
 #include <Cache.hpp>
 #include <Utils.hpp>
-#include <GlobalConfig.hpp>
+#include <AMSGlobalConfig.hpp>
 #include <vector>
 #include <algorithm>
 
@@ -121,7 +121,7 @@ bool CISoftRepoServer::_SearchSites(CFCGIRequest& request)
             return(false);
         }
 
-        GlobalConfig.SetActiveSiteID(site_sid);
+        AMSGlobalConfig.SetActiveSiteID(site_sid);
 
         // initialze AMS cache
         if( Cache.LoadCache(true) == false) {

@@ -27,7 +27,7 @@
 #include <signal.h>
 #include <XMLElement.hpp>
 #include <XMLParser.hpp>
-#include <prefix.h>
+#include "prefix.h"
 #include <TemplatePreprocessor.hpp>
 #include <TemplateCache.hpp>
 #include <Template.hpp>

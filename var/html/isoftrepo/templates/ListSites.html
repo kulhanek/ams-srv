@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" encoding="utf-8">
+    <head>
+        <title>iSoftrepo</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="../scripts/common.js"> </script>
+        <link rel="stylesheet" href="../styles/main.css"/>
+    </head>
+    <body onload="do_load();">
+        <form action="_SERVERSCRIPTURI" method="get" onsubmit="do_submit();">
+        <div id="head">
+            <!--IF HOMELINK-->
+            <div class="homelink"><a href="_HOMEURL">_HOMEDESC</a></div>
+            <!--END IF HOMELINK-->
+            <h1><span class="white"><i>i</i>Softrepo</span> @ _LOCATION</h1>
+            <h2><i>i</i>Softrepo is an interactive software repository browsing service</h2>
+        </div>
+        <div id="menu">
+            <div class="right">
+                <span>Search in all sites:</span>
+                <input class="search" type="text" name="search" value=""/>
+            </div>
+            <input type="hidden" name="action"
+                                 value="none"/>
+            <input type="button" name="sites"
+                                 value="&gt; Sites &lt;" onclick="do_action('sites');"/>
+        </div>
+        <div id="path">
+            <p>/ All sites</p>
+        </div>
+        <div id="sites">
+            <table>
+                <tr>
+                    <td>
+                        <p>
+                            <i>i</i>Softrepo is a web service providing information about installed software packages, which are managed by Advanced Module System (AMS). In AMS terminology, software packages are called modules. At every site, modules are grouped to thematic categories providing a fast way how to select software, which best matches your requirements. Every module is described in details. A short summary, license type, available versions, and links to software manual documentation are provided whenever possible.
+                        </p>
+                        <h3>Please select a site:</h3>
+                        <ul class="groups">
+                            <!--DO CYCLE GROUPS-->
+                            <li class="group"><b>_GROUP</b>
+                                <ul>
+                                    <!--DO CYCLE SITES-->
+                                    <li><a href="_SERVERSCRIPTURI?action=categories&amp;site=_SITE" rel="new">_SITE</a></li>
+                                    <!--END CYCLE SITES-->
+                                </ul>
+                            </li>
+                            <!--END CYCLE GROUPS-->
+                        </ul>
+                    </td>
+                    <td>
+                        <!--IF NEWS-->
+                        <div id="news">
+                            <h3>Latest news</h3>
+                            <!--DO CYCLE NEWS-->
+                            <h4>_NTITLE</h4>
+                            <p><span>_NDATE</span>, <a href="_NURL">details.</a></p>
+                            <!--END CYCLE NEWS-->
+                            <p class="final">All software news can be found in the <a href="_NARCHURL">archive</a>.</p>
+                        </div>
+                        <!--END IF NEWS-->
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="foot">
+            <p>Powered by <b>Advanced Module System</b> _AMSVER<!--INCLUDE MONITORING--></p>
+        </div>
+        </form>
+    </body>
+</html> 

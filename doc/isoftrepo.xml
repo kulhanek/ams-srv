@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <server port="10000" />
+    <description location="LCC" />
+    <home url="https://lcc.ncbr.muni.cz/whitezone/development/infinity/">Infinity home</home>
+    <news path="/scratch/kulhanek/Development/linux/projects/ams/6.0/test/softmail"
+          url="https://lcc.ncbr.muni.cz/bluezone/pipermail/infinity/" />
+    <watcher enabled="true" />
+    <monitoring>, monitored by <a href="http://www.piwik.org">Piwik</a>
+    <!-- Piwik -->
+<script type="text/javascript">
+var pkBaseURL = (("https:" == document.location.protocol) ? "https://lcc.ncbr.muni.cz/whitezone/piwik/" : "http://lcc.ncbr.muni.cz/whitezone/piwik/");
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 4);
+piwikTracker.trackPageView();
+piwikTracker.enableLinkTracking();
+} catch( err ) {}
+</script><noscript><p><img src="http://lcc.ncbr.muni.cz/whitezone/piwik/piwik.php?idsite=4" style="border:0" alt="" /></p></noscript>
+<!-- End Piwik Tracking Tag -->
+    </monitoring>
+</config>

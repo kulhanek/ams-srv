@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<config database="localhost:ams_stat.fdb"
+    user="ams"
+    password="*****"
+    port="32597">
+  <!--  <clients>
+        <client name="pes"/>
+    </clients> -->
+</config>

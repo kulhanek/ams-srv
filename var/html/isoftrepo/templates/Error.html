@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
+    <head>
+        <title>iSoftrepo</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="../scripts/common.js"> </script>
+        <link rel="stylesheet" href="../styles/main.css"/>
+    </head>
+    <body>
+        <form action="_SERVERSCRIPTURI" method="get">
+        <div id="head">
+            <!--IF HOMELINK-->
+            <div class="homelink"><a href="_HOMEURL">_HOMEDESC</a></div>
+            <!--END IF HOMELINK-->
+            <h1><span class="white"><i>i</i>Softrepo</span> @ _LOCATION</h1>
+            <h2><i>i</i>Softrepo is an interactive software repository browsing service</h2>
+        </div>
+        <div id="menu">
+            <div class="right">
+                <span>Search:</span>
+                <input type="text" name="search" value="" onclick="do_action('search')"/>
+            </div>
+            <input type="hidden" name="action" value="none"/>
+            <input type="button" name="sites" value="Sites" onclick="do_action('sites')"/>
+            <!-- <input type="button" name="help" value="&gt; Help &lt;" onclick="do_action('help')"/> -->
+        </div>
+        <div id="path">
+            <p>/ Error</p>
+        </div>
+        <div id="error">
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+        </div>
+        <div id="foot">
+            <p></p>
+            <p>Powered by <b>Advanced Module System</b> _AMSVER<!--INCLUDE MONITORING--></p>
+        </div>
+        </form>
+    </body>
+</html> 

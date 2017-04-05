@@ -1,0 +1,115 @@
+// =============================================================================
+// AMS - Advanced Module System
+// -----------------------------------------------------------------------------
+
+Statistics capabilities of Advanced Module System (AMS)
+
+Internal notes:
+
+////////////////////////////////////////////////////////////////////////////////
+
+0) create user
+
+# gsec -user sysdba -pass masterkey -add "ams" -pw "******"
+
+////////////////////////////////////////////////////////////////////////////////
+
+1) create database
+
+# isql-fb
+
+CREATE DATABASE 'localhost:/var/lib/firebird/2.5/data/ams_stat.fdb' USER 'ams' PASSWORD '******';
+
+CREATE TABLE "STATISTICS" (
+    "Site"           integer,
+    "ModuleName"     integer,
+    "ModuleVers"     integer,
+    "ModuleArch"     integer,
+    "ModuleMode"     integer,
+    "User"           integer,
+    "HostName"       integer,
+    "NCPU"           integer,
+    "NHostCPU"       integer,
+    "NGPU"           integer,
+    "NHostGPU"       integer,
+    "NNODE"          integer,
+    "Flags"          integer,
+    "Time"           timestamp
+    );
+
+CREATE TABLE "KEYS" (
+    "ID"           integer NOT NULL PRIMARY KEY,
+    "Key"          varchar(128)
+    );
+
+CREATE GENERATOR gen_key_id;
+SET GENERATOR gen_key_id TO 1;
+
+set term !! ;
+CREATE TRIGGER KEY_TRIGGER FOR "KEYS"
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+if (NEW.ID is NULL) then NEW.ID = GEN_ID(gen_key_id, 1);
+END!!
+set term ; !!
+
+COMMIT;
+
+////////////////////////////////////////////////////////////////////////////////
+
+CREATE TABLE "STATISTICS" (
+    "Site"           integer,   // site ID in form {TEXT:UUID}
+    "ModuleName"     integer,   // module name
+    "ModuleVers"     integer,   // module version
+    "ModuleArch"     integer,   // module architecture
+    "ModuleMode"     integer,   // module parallel mode
+    "User"           integer,   // user name
+    "HostName"       integer,   // hostname
+    "NCPU"           integer,   // number of requested CPUs
+    "NHostCPU"       integer,   // number of host CPUs
+    "NGPU"           integer,   // number of requested GPUs
+    "NHostGPU"       integer,   // number of host GPUs
+    "NNODE"          integer,   // number of requested nodes
+    "Flags"          integer,   // status flags
+    "Time"           timestamp  // time when module was activated
+    );
+
+////////////////////////////////////////////////////////////////////////////////
+
+2) setup alias
+
+# vi /etc/firebird/2.5/aliases.conf
+
+ams_stat.fdb = /var/lib/firebird/2.5/data/ams_stat.fdb
+
+////////////////////////////////////////////////////////////////////////////////
+
+3) Connect to the database
+
+# isql-fb
+
+CONNECT 'localhost:ams_stat.fdb' USER 'ams' PASSWORD '*******';
+
+Statistics:
+SELECT distinct KEYS."Key" from STATISTICS LEFT JOIN KEYS ON KEYS.ID = STATISTICS."User";
+SELECT distinct KEYS."Key" from STATISTICS LEFT JOIN KEYS ON KEYS.ID = STATISTICS."HostName";
+SELECT distinct KEYS."Key" from STATISTICS LEFT JOIN KEYS ON KEYS.ID = STATISTICS."ModuleName";
+
+# statistiky
+SELECT COUNT(STATISTICS."ModuleName") AS "pocet", KEYS."Key" FROM STATISTICS JOIN KEYS ON (KEYS."ID" = STATISTICS."ModuleName") GROUP BY STATISTICS."ModuleName",KEYS."Key" ORDER BY "pocet" DESC;
+SELECT COUNT(STATISTICS."User") AS "pocet", KEYS."Key" FROM STATISTICS JOIN KEYS ON (KEYS."ID" = STATISTICS."User") GROUP BY STATISTICS."User",KEYS."Key" ORDER BY "pocet" DESC;
+
+
+SELECT COUNT(STATISTICS."ModuleVers") AS "pocet", KEYS."Key" FROM STATISTICS JOIN KEYS ON (KEYS."ID" = STATISTICS."ModuleVers") GROUP BY STATISTICS."ModuleVers",KEYS."Key" ORDER BY "pocet" DESC;
+
+4) insert new record
+
+INSERT INTO "STATISTICS" ("Site","ModuleName","ModuleVers","ModuleArch",
+                          "ModulePara","User","HostName","NCPU","MaxCPUPerNode",
+                          "Flags","Time") VALUES(?,?,?,?,?,?,?,?,?,?,?);
+
+
+
+
+

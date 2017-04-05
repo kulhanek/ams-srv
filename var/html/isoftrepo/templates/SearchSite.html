@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" encoding="utf-8">
+    <head>
+        <title>iSoftrepo</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="../scripts/common.js"> </script>
+        <link rel="stylesheet" href="../styles/main.css"/>
+    </head>
+    <body onload="do_load();">
+        <form action="_SERVERSCRIPTURI" method="get" onsubmit="do_submit();">
+        <div id="head">
+            <!--IF HOMELINK-->
+            <div class="homelink"><a href="_HOMEURL">_HOMEDESC</a></div>
+            <!--END IF HOMELINK-->
+            <h1><span class="white"><i>i</i>Softrepo</span> @ _LOCATION</h1>
+            <h2><i>i</i>Softrepo is an interactive software repository browsing service</h2>
+        </div>
+        <div id="menu">
+            <input type="hidden" name="site"
+                                 value="_SITE"/>
+            <input type="hidden" name="action"
+                                 value="none"/>
+            <input type="button" name="sites"
+                                 value="Sites" onclick="do_action('sites');"/>
+            <input type="button" name="info"
+                                 value="Site info" onclick="do_action('info');"/>
+            <input type="button" name="categories"
+                                 value="Categories" onclick="do_action('categories');"/>
+        </div>
+        <div id="path">
+            <p>/ <a href="_SERVERSCRIPTURI">All sites</a> / _SITE / search results</p>
+        </div>
+        <div id="search">
+            <div class="sheader">
+                <input class="search" type="text" name="search" value="_SEARCH"/>
+                <input type="button"  name="search_submit"
+                       value="Search" onclick="do_action('search');"/>
+            </div>
+            <!--DO CYCLE RESULTS-->
+                <p class="link">
+                    <a href="_SERVERSCRIPTURI?action=module&amp;site=_SITE&amp;module=_MODULE">_MODULE</a>
+                </p>
+                <p class="desc"><!--INCLUDE DESCRIPTION--></p>
+            <!--END CYCLE RESULTS-->
+            <!--IF NONE-->
+            <p class="none">No module satisfied search criteria!</p>
+            <!--END IF NONE-->
+            <br/>
+            <br/>
+        </div>
+        <div id="foot">
+            <p>Powered by <b>Advanced Module System</b> _AMSVER<!--INCLUDE MONITORING--></p>
+        </div>
+        </form>
+    </body>
+</html> 

@@ -29,3 +29,6 @@ src/sbin/ams-isoftrepo/prefix.c
 src/sbin/ams-isoftrepo/prefix.h
 src/sbin/ams-isoftstat/prefix.c
 src/sbin/ams-isoftstat/prefix.h
+doc/firebird.txt
+doc/isoftrepo.xml
+doc/stat.xml

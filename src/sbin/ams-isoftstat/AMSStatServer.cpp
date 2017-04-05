@@ -118,7 +118,7 @@ int CAMSStatServer::Init(int argc, char* argv[])
     vout << "# ----------------------------------" << endl;
     vout << "# Database    : " << Server.GetDatabaseName() << endl;
     vout << "# User        : " << Server.GetDatabaseUser() << endl;
-    vout << "# Password    : " << Server.GetDatabasePassword() << endl;
+    vout << "# Password    : " << "********" << endl;
     vout << "#" << endl;
     CXMLElement* p_watcher = ServerConfig.GetChildElementByPath("config/watcher");
     Watcher.ProcessWatcherControl(vout,p_watcher);
@@ -392,7 +392,7 @@ bool CAMSStatServer::WriteDataToDatabase(CAddStatDatagram& datagram)
     CSmallString sql;
 
     sql = "INSERT INTO \"STATISTICS\" (\"Site\",\"ModuleName\",\"ModuleVers\",\"ModuleArch\","
-          "\"ModuleMode\",\"User\",\"HostName\",\"NCPU\",\"NHostCPU\",\"NGPU\",\"NHostGPU\",\"NNODE\","
+          "\"ModuleMode\",\"User\",\"HostName\",\"NCPUS\",\"NHostCPUS\",\"NGPUS\",\"NHostGPUS\",\"NNODES\","
           "\"Flags\",\"Time\") VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
     // execute SQL statement

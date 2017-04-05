@@ -28,11 +28,11 @@ CREATE TABLE "STATISTICS" (
     "ModuleMode"     integer,
     "User"           integer,
     "HostName"       integer,
-    "NCPU"           integer,
-    "NHostCPU"       integer,
-    "NGPU"           integer,
-    "NHostGPU"       integer,
-    "NNODE"          integer,
+    "NCPUS"          integer,
+    "NHostCPUS"      integer,
+    "NGPUS"          integer,
+    "NHostGPUS"      integer,
+    "NNODES"         integer,
     "Flags"          integer,
     "Time"           timestamp
     );
@@ -66,11 +66,11 @@ CREATE TABLE "STATISTICS" (
     "ModuleMode"     integer,   // module parallel mode
     "User"           integer,   // user name
     "HostName"       integer,   // hostname
-    "NCPU"           integer,   // number of requested CPUs
-    "NHostCPU"       integer,   // number of host CPUs
-    "NGPU"           integer,   // number of requested GPUs
-    "NHostGPU"       integer,   // number of host GPUs
-    "NNODE"          integer,   // number of requested nodes
+    "NCPUS"          integer,   // number of requested CPUs
+    "NHostCPUS"      integer,   // number of host CPUs
+    "NGPUS"          integer,   // number of requested GPUs
+    "NHostGPUS"      integer,   // number of host GPUs
+    "NNODES"         integer,   // number of requested nodes
     "Flags"          integer,   // status flags
     "Time"           timestamp  // time when module was activated
     );

@@ -1,0 +1,39 @@
+
+CONNECT 'localhost:ams_stat.fdb' USER 'ams' PASSWORD '****';
+
+CREATE TABLE "STATISTICS" (
+    "Site"           integer,
+    "ModuleName"     integer,
+    "ModuleVers"     integer,
+    "ModuleArch"     integer,
+    "ModuleMode"     integer,
+    "User"           integer,
+    "HostName"       integer,
+    "NCPUS"          integer,
+    "NHostCPUS"      integer,
+    "NGPUS"          integer,
+    "NHostGPUS"      integer,
+    "NNODES"         integer,
+    "Flags"          integer,
+    "Time"           timestamp
+    );
+
+CREATE TABLE "KEYS" (
+    "ID"           integer NOT NULL PRIMARY KEY,
+    "Key"          varchar(128)
+    );
+
+CREATE GENERATOR gen_key_id;
+SET GENERATOR gen_key_id TO 1;
+
+set term !! ;
+CREATE TRIGGER KEY_TRIGGER FOR "KEYS"
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+if (NEW.ID is NULL) then NEW.ID = GEN_ID(gen_key_id, 1);
+END!!
+set term ; !!
+
+COMMIT;
+

@@ -34,6 +34,7 @@
 #include <XMLParser.hpp>
 #include <XMLPrinter.hpp>
 #include <XMLElement.hpp>
+#include <AMSGlobalConfig.hpp>
 
 #include <boost/algorithm/string/split.hpp>
 #include <boost/algorithm/string/trim.hpp>
@@ -75,7 +76,7 @@ bool CISoftRepoServer::_ListSites(CFCGIRequest& request)
     ProcessCommonParams(request,params);
 
     // make list of all available sites -------------
-    CDirectoryEnum         dir_enum(BR_ETCDIR("/sites"));
+    CDirectoryEnum         dir_enum(AMSGlobalConfig.GetAMSRootDir() / "sites");
     CFileName              site_sid;
     std::vector<CSite*>    sites;
 

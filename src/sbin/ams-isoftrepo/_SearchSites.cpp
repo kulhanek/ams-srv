@@ -76,7 +76,7 @@ bool CISoftRepoServer::_SearchSites(CFCGIRequest& request)
     //IDs ------------------------------------------
 
     // make list of all available sites -------------
-    CDirectoryEnum         dir_enum(BR_ETCDIR("/sites"));
+    CDirectoryEnum         dir_enum(AMSGlobalConfig.GetAMSRootDir() / "sites");
     CFileName              site_sid;
     std::vector<CSite*>    sites;
 

@@ -195,8 +195,7 @@ bool CAMSStatServer::LoadConfig(void)
 {
     CFileName    config_path;
 
-    config_path = ETCDIR;
-    config_path = config_path / "servers" / "stat.xml";
+    config_path = CFileName(ETCDIR) / "servers" / "stat.xml";
 
     CXMLParser xml_parser;
     xml_parser.SetOutputXMLNode(&ServerConfig);

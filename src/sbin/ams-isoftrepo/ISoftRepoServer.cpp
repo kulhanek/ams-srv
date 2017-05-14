@@ -33,6 +33,7 @@
 #include <Template.hpp>
 #include <XMLPrinter.hpp>
 #include <XMLText.hpp>
+#include <AMSGlobalConfig.hpp>
 #include <boost/algorithm/string/replace.hpp>
 
 using namespace std;
@@ -319,8 +320,7 @@ bool CISoftRepoServer::LoadConfig(void)
 {
     CFileName    config_path;
 
-    config_path = ETCDIR;
-    config_path = config_path / "servers" / "isoftrepo.xml";
+    config_path = CFileName(ETCDIR) / "servers" / "isoftrepo.xml";
 
     CXMLParser xml_parser;
     xml_parser.SetOutputXMLNode(&ServerConfig);
@@ -340,23 +340,25 @@ bool CISoftRepoServer::LoadConfig(void)
 
     vout << "#" << endl;
     vout << "# === [server] =================================================================" << endl;
-    vout << "# FCGI Port (port) = " << GetPortNumber() << endl;
+    vout << "# FCGI Port  = " << GetPortNumber() << endl;
     vout << "#" << endl;
 
+    vout << "#" << endl;
+    vout << "# === [ams] ====================================================================" << endl;
+    vout << "# AMS root   = " << GetAMSRoot() << endl;
+    vout << "#" << endl;
+
+    AMSGlobalConfig.SetAMSRootDir(GetAMSRoot());
+
     vout << "# === [description] ============================================================" << endl;
-    vout << "# Location (description/location) = " << GetLocationName() << endl;
-    vout << "# Home URL (home/url)             = " << GetHomeURL() << endl;
-    vout << "# Home Text (home/text)           = " << GetHomeText() << endl;
+    vout << "# Location  = " << GetLocationName() << endl;
+    vout << "# Home URL  = " << GetHomeURL() << endl;
+    vout << "# Home Text = " << GetHomeText() << endl;
     vout << "#" << endl;
 
     CXMLElement* p_watcher = ServerConfig.GetChildElementByPath("config/watcher");
     Watcher.ProcessWatcherControl(vout,p_watcher);
     vout << "#" << endl;
-
-    vout << "# === [news] ===================================================================" << endl;
-    vout << "# Archive directory (path) = " << GetNewsDirectory() << endl;
-    vout << "# Archive URL (url)        = " << GetNewsArchiveURL() << endl;
-    vout << "" << endl;
 
     vout << "# === [internal] ===============================================================" << endl;
     vout << "# Templates = " << temp_dir << endl;
@@ -382,6 +384,23 @@ int CISoftRepoServer::GetPortNumber(void)
         return(setup);
     }
     return(setup);
+}
+
+//------------------------------------------------------------------------------
+
+const CSmallString CISoftRepoServer::GetAMSRoot(void)
+{
+    CSmallString root;
+    CXMLElement* p_ele = ServerConfig.GetChildElementByPath("config/ams");
+    if( p_ele == NULL ) {
+        ES_ERROR("unable to open config/ams path");
+        return(root);
+    }
+    if( p_ele->GetAttribute("root",root) == false ) {
+        ES_ERROR("unable to get root item");
+        return(root);
+    }
+    return(root);
 }
 
 //==============================================================================
@@ -437,40 +456,6 @@ const CSmallString CISoftRepoServer::GetHomeText(void)
     }
     name = p_text->GetText();
     return(name);
-}
-
-//------------------------------------------------------------------------------
-
-const CSmallString CISoftRepoServer::GetNewsDirectory(void)
-{
-    CSmallString setup;
-    CXMLElement* p_ele = ServerConfig.GetChildElementByPath("config/news");
-    if( p_ele == NULL ) {
-        ES_ERROR("unable to open config/news path");
-        return(setup);
-    }
-    if( p_ele->GetAttribute("path",setup) == false ) {
-        ES_ERROR("unable to get path item");
-        return(setup);
-    }
-    return(setup);
-}
-
-//------------------------------------------------------------------------------
-
-const CSmallString CISoftRepoServer::GetNewsArchiveURL(void)
-{
-    CSmallString setup;
-    CXMLElement* p_ele = ServerConfig.GetChildElementByPath("config/news");
-    if( p_ele == NULL ) {
-        ES_ERROR("unable to open config/news path");
-        return(setup);
-    }
-    if( p_ele->GetAttribute("url",setup) == false ) {
-        ES_ERROR("unable to get url item");
-        return(setup);
-    }
-    return(setup);
 }
 
 //------------------------------------------------------------------------------

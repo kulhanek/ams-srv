@@ -61,7 +61,6 @@ private:
 
     // web pages handlers ------------------------------------------------------
     bool _ListSites(CFCGIRequest& request);
-    void _ListNews(CTemplateParams& params);
     bool _SiteInfo(CFCGIRequest& request);
     bool _ListCategories(CFCGIRequest& request);
     bool _Module(CFCGIRequest& request);
@@ -85,14 +84,13 @@ private:
     // fcgi server
     int                GetPortNumber(void);
 
+    // ams root
+    const CSmallString GetAMSRoot(void);
+
     // description
     const CSmallString GetLocationName(void);
     const CSmallString GetHomeURL(void);
     const CSmallString GetHomeText(void);
-
-    // news
-    const CSmallString GetNewsDirectory(void);
-    const CSmallString GetNewsArchiveURL(void);
 
     // monitoring
     CXMLElement* GetMonitoringIFrame(void);

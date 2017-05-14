@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <config database="localhost:ams_stat.fdb"
     user="ams"
-    password="amspsw"
+    password="****"
     port="32597">
-  <!--  <clients>
-        <client name="pes"/>
-    </clients> -->
+    <watcher enabled="true" logname="/home/infinity/.ams-srv/stat.log">
 </config>

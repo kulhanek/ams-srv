@@ -1,9 +1,12 @@
 [Unit]
-Description=MetaNFS4 ID Mapping Service
+Description=AMS iSoftrepo Service
 
 [Service]
+User=infinity
+Group=lccadm
+WorkingDirectory=~
 Type=simple
-ExecStart=/opt/metanfs4/2.0/bin/metanfs4d
+ExecStart=/opt/ams-servers/8.0/sbin/ams-isoftrepo
 
 [Install]
 WantedBy=multi-user.target

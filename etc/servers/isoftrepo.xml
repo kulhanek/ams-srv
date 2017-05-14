@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
     <server port="10000" />
+    <ams root="/software/ncbr/softmods/8.0"/>
     <description location="LCC" />
     <home url="https://lcc.ncbr.muni.cz/whitezone/development/infinity/">Infinity home</home>
-    <news path="/scratch/kulhanek/Development/linux/projects/ams/6.0/test/softmail"
-          url="https://lcc.ncbr.muni.cz/bluezone/pipermail/infinity/" />
-    <watcher enabled="true" />
+    <watcher enabled="true" logname="/home/infinity/.ams-srv/isoftrepo.log"/>
+
     <monitoring>, monitored by <a href="http://www.piwik.org">Piwik</a>
     <!-- Piwik -->
 <script type="text/javascript">

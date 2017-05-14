@@ -276,8 +276,10 @@ bool CISoftRepoServer::ProcessCommonParams(CFCGIRequest& request,
     }
 
     server_script_uri << request.Params.GetValue("SERVER_NAME");
-    if( (server_script_uri.GetLength() > 0) && (server_script_uri[server_script_uri.GetLength()-1] != '/') ){
-        server_script_uri << "/";
+    if( request.Params.GetValue("SCRIPT_NAME").GetLength() >= 1 ){
+        if( request.Params.GetValue("SCRIPT_NAME")[0] != '/' ){
+            server_script_uri << "/";
+        }
     }
     server_script_uri << request.Params.GetValue("SCRIPT_NAME");
 

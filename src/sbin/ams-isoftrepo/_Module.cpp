@@ -341,18 +341,25 @@ bool CISoftRepoServer::_Module(CFCGIRequest& request)
 
             params.StartCondition("MNAM",mver == NULL);
                 params.SetParam("DNAME",mname);
+                params.SetParam("DNAMEURL",CFCGIParams::EncodeString(mname));
             params.EndCondition("MNAM");
 
             params.StartCondition("MVER",mver != NULL);
                 params.SetParam("DNAME",mname);
+                params.SetParam("DNAMEURL",CFCGIParams::EncodeString(mname));
                 params.SetParam("DVER",mver);
+                params.SetParam("DVERURL",CFCGIParams::EncodeString(mver));
             params.EndCondition("MVER");
 
             params.StartCondition("MBUILD",mmode != NULL);
-                params.SetParam("DNAME",mname);
-                params.SetParam("DVER",mver);
-                params.SetParam("DARCH",march);
+                params.SetParam("DNAME",mmode);
+                params.SetParam("DNAMEURL",CFCGIParams::EncodeString(mmode));
+                params.SetParam("DVER",mmode);
+                params.SetParam("DVERURL",CFCGIParams::EncodeString(mmode));
+                params.SetParam("DARCH",mmode);
+                params.SetParam("DARCHURL",CFCGIParams::EncodeString(mmode));
                 params.SetParam("DMODE",mmode);
+                params.SetParam("DMODEURL",CFCGIParams::EncodeString(mmode));
             params.EndCondition("MBUILD");
 
             params.NextRun();

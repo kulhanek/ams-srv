@@ -468,16 +468,6 @@ CXMLElement* CISoftRepoServer::GetMonitoringIFrame(void)
     return(p_ele);
 }
 
-//------------------------------------------------------------------------------
-
-const CSmallString CISoftRepoServer::Transform(const CSmallString& text)
-{
-    // substitute # by %23
-    string stext = string(text);
-    boost::algorithm::replace_all(stext,"#","%23");
-    return(stext);
-}
-
 //==============================================================================
 //------------------------------------------------------------------------------
 //==============================================================================

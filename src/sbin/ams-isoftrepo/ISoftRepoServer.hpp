@@ -94,9 +94,6 @@ private:
 
     // monitoring
     CXMLElement* GetMonitoringIFrame(void);
-
-    // transform string with #
-    const CSmallString Transform(const CSmallString& text);
 };
 
 //------------------------------------------------------------------------------

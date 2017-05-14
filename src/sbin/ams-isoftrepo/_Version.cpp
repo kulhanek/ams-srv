@@ -140,7 +140,7 @@ bool CISoftRepoServer::_Version(CFCGIRequest& request)
     while( it != ie ){
         CSmallString full_name = (*it);
         params.SetParam("BUILD",full_name);
-        params.SetParam("TBUILD",Transform(full_name));
+        params.SetParam("TBUILD",CFCGIParams::EncodeString(full_name));
         params.NextRun();
         it++;
     }

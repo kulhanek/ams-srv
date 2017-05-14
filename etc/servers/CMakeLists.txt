@@ -2,7 +2,7 @@
 # InfiCore CMake File
 # ==============================================================================
 
-INSTALL(TARGETS
+INSTALL(FILES
             isoftrepo.xml
         RUNTIME DESTINATION
             etc/servers

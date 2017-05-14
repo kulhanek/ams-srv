@@ -113,6 +113,7 @@ bool CISoftRepoServer::_Module(CFCGIRequest& request)
 
     params.SetParam("SITE",site_name);
     params.SetParam("MODULE",module_name);
+    params.SetParam("MODULEURL",CFCGIParams::EncodeString(module_name));
 
     // populate cache ------------
     CSmallString site_sid;
@@ -168,6 +169,7 @@ bool CISoftRepoServer::_Module(CFCGIRequest& request)
         CSmallString full_name;
         full_name = module_name + ":" + (*it).version;
         params.SetParam("MODVER",full_name);
+        params.SetParam("MODVERURL",CFCGIParams::EncodeString(full_name));
         if( count > 5 ){
             params.SetParam("CLASS","old");
         } else {

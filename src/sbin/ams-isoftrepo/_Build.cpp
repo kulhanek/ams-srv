@@ -98,8 +98,10 @@ bool CISoftRepoServer::_Build(CFCGIRequest& request)
 
     params.SetParam("SITE",site_name);
     params.SetParam("MODVER",modver);
+    params.SetParam("MODVERURL",CFCGIParams::EncodeString(modver));
     params.SetParam("BUILD",build);
     params.SetParam("MODULE",module_name);
+    params.SetParam("MODULEURL",CFCGIParams::EncodeString(module_name));
     params.SetParam("VERSION",module_ver);
     params.SetParam("ARCH",module_arch);
     params.SetParam("MODE",module_mode);

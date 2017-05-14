@@ -162,7 +162,8 @@ bool CISoftRepoServer::_SearchSites(CFCGIRequest& request)
     // print results
     params.StartCycle("RESULTS");
     for(unsigned int i=0; i < hints.size(); i++) {
-        params.SetParam("MODULE",CFCGIParams::EncodeString(hints[i].Name));
+        params.SetParam("MODULE",hints[i].Name);
+        params.SetParam("MODULEURL",CFCGIParams::EncodeString(hints[i].Name));
         params.StartCycle("SITES");
         for(unsigned int j=0; j < hints[i].Sites.size(); j++) {
             params.SetParam("SITE",hints[i].Sites[j]);

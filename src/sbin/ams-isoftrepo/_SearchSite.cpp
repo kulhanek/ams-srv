@@ -113,7 +113,8 @@ bool CISoftRepoServer::_SearchSite(CFCGIRequest& request)
     for(unsigned int i=0; i < hits.size(); i++) {
         CSmallString name;
         hits[i]->GetAttribute("name",name);
-        params.SetParam("MODULE",CFCGIParams::EncodeString(name));
+        params.SetParam("MODULE",name);
+        params.SetParam("MODULEURL",CFCGIParams::EncodeString(name));
         if( Cache.GetModuleDescription(hits[i]) != NULL ) {
             params.Include("DESCRIPTION",Cache.GetModuleDescription(hits[i]));
         }

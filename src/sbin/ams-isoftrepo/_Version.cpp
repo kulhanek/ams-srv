@@ -79,6 +79,7 @@ bool CISoftRepoServer::_Version(CFCGIRequest& request)
 
     params.SetParam("SITE",site_name);
     params.SetParam("MODVER",modver);
+    params.SetParam("MODVERURL",CFCGIParams::EncodeString(module_name));
     params.SetParam("MODULE",module_name);
     params.SetParam("VERSION",module_ver);
 

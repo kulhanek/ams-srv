@@ -202,7 +202,7 @@ bool CISoftRepoServer::_Module(CFCGIRequest& request)
 
     // module sites ------------------------------
     // make list of all available sites -------------
-    CDirectoryEnum         dir_enum(AMSGlobalConfig.GetAMSRootDir() / "sites");
+    CDirectoryEnum         dir_enum(AMSGlobalConfig.GetAMSRootDir() / "etc" / "sites");
     CFileName              lsite_sid;
     std::list<CSitePtr>    sites;
 

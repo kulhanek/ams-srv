@@ -1,0 +1,9 @@
+[Unit]
+Description=AMS iSoftrepo Service
+
+[Service]
+Type=simple
+ExecStart=/opt/ams-servers/8.0/sbin/ams-isoftrepo
+
+[Install]
+WantedBy=multi-user.target

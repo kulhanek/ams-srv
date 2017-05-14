@@ -4,7 +4,9 @@
 
 INSTALL(FILES
             isoftrepo.xml
-        RUNTIME DESTINATION
+        DESTINATION
             etc/servers
+        PERMISSIONS
+            OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
         )
 

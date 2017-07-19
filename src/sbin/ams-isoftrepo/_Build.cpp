@@ -132,19 +132,18 @@ bool CISoftRepoServer::_Build(CFCGIRequest& request)
     params.EndCondition("ACL");
 
     // dependencies ------------------------------
-    CXMLElement* p_deps = p_build->GetFirstChildElement("dependencies");
+    CXMLElement* p_deps = p_build->GetFirstChildElement("deps");
     params.StartCondition("DEPENDENCIES",p_deps != NULL);
     if( p_deps != NULL ){
         params.StartCycle("DEPS");
-        CXMLElement* p_dep = p_deps->GetFirstChildElement();
+        CXMLElement* p_dep = p_deps->GetFirstChildElement("dep");
         while( p_dep != NULL ){
             CSmallString module;
-            if( p_dep->GetName() == "syncdepend" ){
-                p_dep->GetAttribute("build",module);
-            } else {
-                p_dep->GetAttribute("module",module);
-            }
-            params.SetParam("DTYPE",p_dep->GetName());
+            CSmallString type;
+            p_dep->GetAttribute("name",module);
+            p_dep->GetAttribute("type",type);
+
+            params.SetParam("DTYPE",type);
             CSmallString mname,mver,march,mmode;
             CUtils::ParseModuleName(module,mname,mver,march,mmode);
 
@@ -172,7 +171,7 @@ bool CISoftRepoServer::_Build(CFCGIRequest& request)
             params.EndCondition("MBUILD");
 
             params.NextRun();
-            p_dep = p_dep->GetNextSiblingElement();
+            p_dep = p_dep->GetNextSiblingElement("dep");
         }
         params.EndCycle("DEPS");
     }

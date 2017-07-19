@@ -147,14 +147,6 @@ bool CISoftRepoServer::_Version(CFCGIRequest& request)
     }
     params.EndCycle("BUILDS");
 
-    // version description -----------------------
-    CXMLElement* p_doc = Cache.GetModuleDescription(p_module,module_ver);
-    if( p_doc != NULL ) {
-        params.StartCondition("DESCR",true);
-        params.Include("DESCRIPTION",p_doc);
-        params.EndCondition("DESCR");
-    }
-
     if( params.Finalize() == false ) {
         ES_ERROR("unable to prepare parameters");
         return(false);

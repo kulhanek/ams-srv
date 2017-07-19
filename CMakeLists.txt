@@ -48,15 +48,9 @@ INCLUDE_DIRECTORIES(${HIPOLY_ROOT}/src/lib/hipoly/xml SYSTEM)
 LINK_DIRECTORIES(${HIPOLY_ROOT}/lib)
 SET(HIPOLY_LIB_NAME hipoly)
 
-# boost ---------------------------------------
-SET(BOOST_ROOT ${DEVELOPMENT_ROOT}/thirdparty/boost/1.51.0)
-INCLUDE_DIRECTORIES(${BOOST_ROOT} SYSTEM)
-
-# FBclient ---------------------------------------
-SET(FBCLIENT_ROOT ${DEVELOPMENT_ROOT}/thirdparty/fbclient/2.5.2.26539)
-INCLUDE_DIRECTORIES(${FBCLIENT_ROOT}/include SYSTEM)
-LINK_DIRECTORIES(${FBCLIENT_ROOT}/lib)
-SET(FBCLIENT_LIB_NAME fbclient)
+# BOOST ------------------------------------------
+FIND_PACKAGE(Boost REQUIRED)
+INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS} SYSTEM)
 
 # FIREBIRD ---------------------------------------
 SET(FIREBIRD_ROOT ${DEVELOPMENT_ROOT}/projects/firebird/1.0)

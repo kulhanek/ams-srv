@@ -3,21 +3,24 @@
     <server port="10000" />
     <ams root="/software/ncbr/softmods/8.0"/>
     <description location="LCC" />
-    <home url="https://lcc.ncbr.muni.cz/whitezone/development/infinity/">Infinity home</home>
+    <home url="https://infinity.ncbr.muni.cz/whitezone/root/index.php">Infinity</home>
     <watcher enabled="true" logname="/home/infinity/.ams-srv/isoftrepo.log"/>
 
-    <monitoring>, monitored by <a href="http://www.piwik.org">Piwik</a>
-    <!-- Piwik -->
+    <monitoring>, monitored by <a href="http://www.motomo.org">Motomo</a>
+<!-- Matomo -->
 <script type="text/javascript">
-var pkBaseURL = (("https:" == document.location.protocol) ? "https://lcc.ncbr.muni.cz/whitezone/piwik/" : "http://lcc.ncbr.muni.cz/whitezone/piwik/");
-document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
-</script><script type="text/javascript">
-try {
-var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 4);
-piwikTracker.trackPageView();
-piwikTracker.enableLinkTracking();
-} catch( err ) {}
-</script><noscript><p><img src="http://lcc.ncbr.muni.cz/whitezone/piwik/piwik.php?idsite=4" style="border:0" alt="" /></p></noscript>
-<!-- End Piwik Tracking Tag -->
+  var _paq = _paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//lcc.ncbr.muni.cz/whitezone/piwik/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '4']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
     </monitoring>
 </config>

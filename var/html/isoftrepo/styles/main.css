@@ -630,6 +630,7 @@ a.hover{
     text-align: left;
     font-family: monospace;
     background-color: #DDDDDD;
+    overflow-x: auto;
     }
 
 /* ================================================== */

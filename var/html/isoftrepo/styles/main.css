@@ -623,6 +623,7 @@ a.hover{
 
 #module .description ul {
     margin-top: 2px;
+    list-style-position: inside;
 }
 
 #module pre {

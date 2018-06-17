@@ -6,7 +6,7 @@
     <home url="https://infinity.ncbr.muni.cz/whitezone/root/index.php">Infinity</home>
     <watcher enabled="true" logname="/home/infinity/.ams-srv/isoftrepo.log"/>
 
-    <monitoring>, monitored by <a href="http://www.motomo.org"> Motomo</a>.
+    <monitoring>, monitored by <a href="http://www.motomo.org">Motomo</a>.
 <!-- Matomo -->
 <script type="text/javascript">
   var _paq = _paq || [];

@@ -442,8 +442,7 @@ a.hover{
     }
 
 #categories li{
-    float: left;
-    width: 13em;
+    min-width: 13em;
     }
 
 /* ================================================== */

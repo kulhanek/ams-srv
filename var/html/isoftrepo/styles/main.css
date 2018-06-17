@@ -305,7 +305,7 @@ a.hover{
     }
 
 #sites ul a{
-    padding-left: 5px;
+    padding-left: 0px;
     
     }
 
@@ -900,6 +900,10 @@ a.hover{
     
     #topic div.warning {
     margin: 10px 0px 5px 0px; 
+    }
+    
+    #module .side{
+        width: auto;
     }
 }
 

@@ -301,6 +301,7 @@ a.hover{
     }
     
 #sites ul {
+    list-style-position: inside;
     }
 
 #sites ul a{

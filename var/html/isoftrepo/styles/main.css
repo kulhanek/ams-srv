@@ -1,57 +1,146 @@
-/* ======================================================== */
+/* CSS Document    */
+*{
+    margin: 0px;
+    padding: 0px;
+}  
 
 html {
-    color: black;
-    background-color: #EEEEEE;
-    }
+    overflow-y: scroll;
+}
 
-
-body {
+body{
     margin: 0px auto 0px auto;
-    font-family: sans-serif;
-    text-align: justify;
+    max-width: 1280px;  
+    color: black;    
     background-color: white;
-    min-width: 800px;
-    max-width: 1280px;
-    }
+    font-family: verdana, Arial, sans-serif;
+}
 
-.filter{
-    display:none;
-    }
+a {
+    text-decoration: none;
+    color: #557AFF; 
+}
+
+a:hover {
+    color: red;
+}
+
+/* ===================================================================================== */
+
+#flags { 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 5px;
+    padding-right: 10px;
+}
+
+#flags li {
+    display: inline-block;
+}
+
+#flags img {
+    height: 10px;
+    margin-right: 5px;
+}
+
+#flags a {
+   color: black;
+}
+
+#flags a:hover {
+   color: red;
+}
+
+#flags a.selected {
+    font-weight: bold;
+}
+
+#flags li.nav a {
+    font-size: 1em;
+    color: #274fa4;
+}
+ 
+/* ===================================================================================== */
+
+#header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+    align-items: center;
+    margin-top: 5px;
+    background-color: #274fa4;
+}
+
+#header h1 {
+    color: white;
+    font-size: 26px;
+    margin: 5px 10px;
+}
+
+#header div {
+    margin: 5px 5px 3px 5px;
+}
+
+#header a {
+    color: white;
+}
+
+#header a:visited {
+    color: white;
+}
+
+#header a:hover {
+    color: red;
+}
+
+ /* ===================================================================================== */
+ 
+#nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    
+    font-size: 18px;
+    font-weight: bold;
+    
+    background-color: white;
+    border-bottom: solid;
+    border-top: solid;
+    border-color: #274fa4;
+    padding: 0px 2px 2px 2px;   
+}
+
+#nav li{
+    padding: 6px 0px 4px 0px;
+    display: inline-block;
+}
+
+#nav li.right {
+    margin-left: auto;
+}
+
+#nav a {
+    color: #274fa4;
+    background-color: white;
+    padding: 4px 5px;
+    margin-right: 2px;
+}
+
+#nav a.selected {
+    color: white;
+    background-color: #274fa4;
+}
+
+#nav a:hover {
+    color: red;
+    background-color: #274fa4;
+}
 
 /* ======================================================== */
-
-#head {
-    background-color: white;
-    margin: 1px;
-    padding: 1px;
-    border-top-style : solid;
-    border-bottom-style : solid;
-    border-color: #000066;
-    border-width: 2px;
-    background-image: url('../images/line.png');
-    background-repeat: repeat-y;
-    }
-
-#head h1 {
-    margin: 0px;
-    padding: 0px 0px 0px 15px;
-    text-align: left;
-    }
-
-#head h2 {
-    font-size: 80%;
-    margin: 0px;
-    padding: 0px 5px 0px 0px;
-    color: #222222;
-    text-align: right;
-    }
-
-#head .homelink{
-    margin-right: 10px;
-    margin-top: 2px;
-    float: right;
-    }
 
 span.white{
     color: white;
@@ -63,7 +152,7 @@ span.white{
     background-color: white;
     text-align: left;
     margin: 0px 1px 0px 1px;
-    padding: 2px;
+    padding: 2px 0px 4px;
     border-color: #BBAAFF;
     border-width: 1px;
     border-top-style: solid;
@@ -73,7 +162,7 @@ span.white{
 
 #menu input{
     background-color : white;
-    margin: 2px;
+    margin: 2px 0px 2px 2px;
     padding: 0px;
     padding-right: 5px;
     border : none;
@@ -118,8 +207,8 @@ span.white{
 #menu input.search{
     color: black;
     font-weight: normal;
-    padding: 1px;
-    margin: 1px;
+    padding: 1px 0px;
+    margin: 1px 0px 2px 1px;
     }
 
 #menu input.search:hover{
@@ -160,52 +249,17 @@ a.hover{
     padding: 0px 0px 0px 0px;
     text-align: left;
     }
+    
+/* ================================================== */
 
-/* ======================================================== */
-
-#foot {
-    clear: both;
-    color: black;
-    margin: 0px 0px 0px 0px;
-    padding: 0px;
+#footer {
     text-align: center;
-    background-color: #dbdbe3;
-    border-top-style: solid;
-    border-top-width: 2px;
-    border-top-color: #8787de;
-    border-bottom-style: solid;
-    border-bottom-width: 2px;
-    border-bottom-color : #8787de;
-    background-image: url('images/valid-xhtml10.png');
-    background-repeat: no-repeat;
-    background-position: 1% 50% ;
-    }
+    margin: 5px 0px;
+    padding: 5px 5px;
+    background-color:   #eaeffa;
+    font-size: 75%;
+}
 
-div#foot p {
-    font-size: 80%;
-    margin: 5px;
-    padding: 0px;
-    }
-
-div#foot a {
-    color: blue;
-    text-decoration: none;
-    padding-left: 5px;
-    }
-
-div#foot a.selected {
-    color: blue;
-    text-decoration: none;
-    }
-
-div#foot a:hover {
-    text-decoration: none;
-    color : yellow;
-    }
-
-div#foot img{
-    vertical-align: middle;
-    }
 
 /* ================================================== */
 
@@ -820,3 +874,26 @@ div#foot img{
     }
 
 /* ================================================== */
+
+
+/* mobile rules */
+
+@media (max-width: 700px) {
+    #header div {
+        display: none;
+    }
+    
+    #topic {
+        margin: 0px 5px;
+        text-align: justify; 
+    } 
+    
+    #topic h1 {
+    margin-left: 0px;
+    }
+    
+    #topic div.warning {
+    margin: 10px 0px 5px 0px; 
+    }
+}
+

@@ -326,6 +326,7 @@ bool CISoftRepoServer::LoadConfig(void)
 
     CXMLParser xml_parser;
     xml_parser.SetOutputXMLNode(&ServerConfig);
+    xml_parser.EnableWhiteCharacters(true);
 
     if( xml_parser.Parse(config_path) == false ) {
         CSmallString error;

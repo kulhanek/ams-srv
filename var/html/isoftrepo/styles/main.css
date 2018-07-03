@@ -155,7 +155,7 @@ span.white{
     padding: 2px 0px 4px;
     border-color: #BBAAFF;
     border-width: 1px;
-    border-top-style: solid;
+    border-top-style: none;
     border-bottom-style: solid;
     border-color : #000066;
     }

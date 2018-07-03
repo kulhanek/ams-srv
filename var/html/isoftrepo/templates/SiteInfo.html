@@ -11,16 +11,22 @@
         <form action="_SERVERSCRIPTURI" method="get" onsubmit="do_submit();">
         <ul id="flags">
              <!--IF HOMELINK-->
-            <li class="nav"><a href="_HOMEURL">_HOMEDESC</a> / <a href="_SERVERSCRIPTURI"><i>i</i>SoftRepo</a></li>
+            <li class="nav"><a href="https://devel.ncbr.muni.cz/whitezone/root/index.php?lang=en&amp;action=main&amp;show=overview">Development</a> / <a href="/whitezone/root/index.php?lang=en&amp;action=main
+&amp;show=intro">Infinity</a></li>
             <!--END IF HOMELINK-->
-            <li>
-                <a id="EN" href="index.php?lang=en&amp;action={$action}&amp;show={$show}"><img src="../images/en.png" alt="english flag" />English</a> 
-            </li>
+            <li><img src="../images/en.png" alt="english flag" />English</li>
         </ul>  
         <div id="header">
-            <h1><i>i</i>SoftRepo - An interactive software repository browsing service</h1>
+            <h1>Infinity - Software and Job Management System</h1>
             <div><img src="../images/logo.png" alt="Infinity logo" /></div>
         </div>  
+        <ul id="nav">
+            <li><a id="intro" href="/whitezone/root/index.php?lang=en&amp;action=main&amp;show=intro">Introduction</a></li>
+            <li><a href="/whitezone/wiki/">Documentation</a></li>
+            <li><a class="selected" href="/whitezone/isoftrepo/fcgi-bin/isoftrepo.fcgi">iSoftrepo</a></li>
+            <li><a id="mailman" href="/whitezone/root/index.php?lang=en&amp;action=main&amp;show=mailman">Mailing lists</a></li>
+            <li><a id="code" href="/whitezone/root/index.php?lang=en&amp;action=main&amp;show=code">Code</a></li>
+        </ul>   
         <div id="menu">
             <div class="right">
                 <span>Search:</span>
